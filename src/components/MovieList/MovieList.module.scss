@@ -1,0 +1,14 @@
+.movie_list {
+  margin: 10px 40px 50px;
+
+  > h2 {
+    color: white;
+  }
+
+  .movie_item_wrapper {
+    display: flex;
+    column-gap: 10px;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+}

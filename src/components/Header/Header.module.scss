@@ -1,0 +1,24 @@
+.logo {
+  padding: 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  > a {
+    color: red;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -2px;
+    text-decoration: none;
+  }
+
+  > nav > ul {
+    list-style: none;
+    padding-left: 0;
+
+    > a {
+      color: white;
+      text-decoration: none;
+      font-size: 21px;
+      font-weight: 700;
+    }
+  }
+}
