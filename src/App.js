@@ -9,6 +9,10 @@ function App() {
       <Route element={<DefaultLayout />}>
         <Route path='/' element={<HomePage />} />
         <Route path='/sign-in' element={<SignInPage />} />
+        <Route
+          path='/movies/:movieId'
+          element={<div style={{ color: 'white' }}>이건 영화 페이지에요.</div>}
+        />
       </Route>
     </Routes>
   );

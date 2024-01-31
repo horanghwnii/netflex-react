@@ -10,6 +10,7 @@ export default function MovieList({ sectionTitle, nowPlayingMovies }) {
         {nowPlayingMovies.map((movie) => (
           <MovieItem
             key={movie.id}
+            id={movie.id}
             title={movie.title}
             backdrop_path={movie.backdrop_path}
           />
