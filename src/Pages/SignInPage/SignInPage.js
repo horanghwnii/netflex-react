@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import styles from './SignInPage.module.scss';
 
-export default function SignInPage() {
+export default function SignInPage({ isLoggedIn, setIsLoggedIn }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleClickSignIn = () => {
     if (!username || !password)
@@ -13,9 +11,7 @@ export default function SignInPage() {
 
     if (username === 'udemy' && password === 'udemy') {
       setIsLoggedIn(true);
-    }
-
-    if (!username === 'udemy' || !password === 'udemy') {
+    } else {
       alert('잘못 입력하셨습니다.');
     }
 
@@ -26,7 +22,7 @@ export default function SignInPage() {
   return (
     <div>
       {isLoggedIn ? (
-        <div>로그인 성공</div>
+        <div style={{ color: 'white' }}>로그인 성공</div>
       ) : (
         <div className={styles.sign_in_page}>
           <h2>SIGN IN</h2>

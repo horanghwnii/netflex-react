@@ -5,7 +5,16 @@
     border-radius: 4px;
   }
 
-  > h3 {
-    color: white;
+  > div {
+    > h3 {
+      color: white;
+    }
+
+    > button {
+      border: none;
+      background: none;
+      font-size: 18px;
+      font-weight: 700;
+    }
   }
 }

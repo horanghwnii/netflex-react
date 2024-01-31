@@ -1,38 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MoviesDetailPage.module.css';
 import { useParams } from 'react-router-dom';
+import api from '../../api/api';
 
-// const nowPlaying =
-//   'https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1&region=KR';
-
-// const topRated =
-//   'https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1&region=KR';
-
-// -- 방법1에 필요 --
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYjdiMTJjM2M2NjhiMjNjZThhNmNhMjFiYTE5M2JjYiIsInN1YiI6IjY1YTlkNjZjNTM0NjYxMDEzOGNkMTFhYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.SYgTW92CkzlWhUcTXHe5m8wIx6jYWHxLcrTLcMwFbQ4',
-  },
-};
+const imageOrigin = 'https://image.tmdb.org/t/p/w500';
 
 export default function MoviesDetailPage() {
   const { movieId } = useParams();
-  // console.log(params);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie${movieId}`, options)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    api.movies.getMovie(movieId).then((movie) => setMovie(movie));
   }, []);
+
+  // 이거 왜 넣어야함
+  if (!movie) {
+    return null;
+  }
+
+  console.log(movie);
 
   return (
     <div>
-      <h2 className={styles.title}>
-        연재 보여지고 있는 페이지의 영화 아이디는 {movieId}.
-      </h2>
+      <div className={styles.movie_wrapper}>
+        <img src={`${imageOrigin}${movie.backdrop_path}`} alt={movie.title} />
+        <div className={styles.movie_desc}>
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+        </div>
+      </div>
     </div>
   );
 }
