@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './SignInPage.module.scss';
+import { useAuth } from '../../contexts/auth.context';
+import { Link } from 'react-router-dom';
 
-export default function SignInPage({ isLoggedIn, setIsLoggedIn }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+export default function SignInPage() {
+  const { isLoggedIn, username, setUsername, password, setPassword, signIn } =
+    useAuth();
 
-  const handleClickSignIn = () => {
-    if (!username || !password)
-      return alert('아이디 또는 비밀번호를 입력해주세요.');
-
-    if (username === 'udemy' && password === 'udemy') {
-      setIsLoggedIn(true);
-    } else {
-      alert('잘못 입력하셨습니다.');
-    }
-
-    setUsername('');
-    setPassword('');
-  };
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
 
   return (
     <div>
@@ -38,7 +29,7 @@ export default function SignInPage({ isLoggedIn, setIsLoggedIn }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button onClick={handleClickSignIn}>로그인하기</button>
+          <button onClick={signIn}>로그인하기</button>
         </div>
       )}
     </div>

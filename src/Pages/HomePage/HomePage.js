@@ -3,7 +3,7 @@ import styles from './HomePage.module.scss';
 import MovieList from '../../components/MovieList';
 import api from '../../api/api';
 
-export default function HomePage({ isLoggedIn }) {
+export default function HomePage() {
   // -- 방법3 --
   const [movies, setMovies] = useState({ nowPlaying: [], topRated: [] });
 
@@ -19,12 +19,10 @@ export default function HomePage({ isLoggedIn }) {
       <MovieList
         sectionTitle={'현재 상영작'}
         nowPlayingMovies={movies.nowPlaying}
-        isLoggedIn={isLoggedIn}
       />
       <MovieList
         sectionTitle={'평점이 높은 영화'}
         nowPlayingMovies={movies.topRated}
-        isLoggedIn={isLoggedIn}
       />
     </div>
   );

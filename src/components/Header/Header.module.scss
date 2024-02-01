@@ -2,6 +2,7 @@
   padding: 40px 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   > a {
     color: red;
     font-size: 3rem;
@@ -11,6 +12,8 @@
   }
 
   > nav > ul {
+    display: flex;
+    gap: 10px;
     list-style: none;
     padding-left: 0;
 

@@ -1,13 +1,56 @@
 .movie_wrapper {
   display: flex;
-  padding: 100px;
+  padding: 50px 100px;
+
+  > img {
+    width: 350px;
+  }
 
   .movie_desc {
     color: white;
     margin-left: 50px;
 
+    > ul {
+      display: flex;
+      padding: 0;
+      gap: 10px;
+
+      > li {
+        list-style: none;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
     > h2 {
       margin: 0;
+    }
+
+    > p {
+      font-size: 21px;
+      line-height: 2;
+    }
+
+    > button {
+      border: none;
+      background: none;
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      cursor: pointer;
+    }
+
+    > div {
+      display: flex;
+
+      > button {
+        border: none;
+        background: none;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 }
